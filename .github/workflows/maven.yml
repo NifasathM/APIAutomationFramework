@@ -26,10 +26,13 @@ jobs:
     - name: Execute Tests
       run: mvn clean test -Dsuite=suite -X
 
-    - name: Upload a Build Artifact
+    - name: Upload Test Results
       uses: actions/upload-artifact@v4
       with:
-        name: Logs
-        path: test-output/
+       name: test-results
+       path: |
+        test-output/
+        target/surefire-reports/
+        logs/
         
       
